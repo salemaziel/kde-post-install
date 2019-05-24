@@ -1,0 +1,22 @@
+#!/bin/bash
+
+cd ~/Documents/Zips
+sudo gdebi -n bleachbit_2.0_all_ubuntu1710.deb
+sudo gdebi -n caprine_2.22.1_amd64.deb
+sudo gdebi -n encryptr_2.0.0-1_amd64.deb
+sudo gdebi -n firejail-apparmor_0.9.56-LTS_1_amd64.deb
+sudo gdebi -n firetools_0.9.52_1_amd64.deb
+sudo gdebi -n google-chrome-stable_current_amd64.deb
+sudo gdebi -n protonmail-desktop_0.5.9_amd64.deb
+sudo gdebi -n pulse-sms-3.1.4-amd64.deb
+sudo gdebi -n slack-desktop-3.3.3-amd64.deb
+sudo gdebi -n stacer_1.0.9_amd64.deb
+sudo gdebi -n Todoist_1.0.0_amd64.deb
+sudo gdebi -n upwork_5.1.0.647_amd64.deb
+sudo gdebi -n virtualbox-6.0_6.0.4-128413~Ubuntu~bionic_amd64.deb
+sudo gdebi -n vivaldi-stable_2.3.1440.60-1_amd64.deb
+sudo gdebi -n youtube-music-desktop_0.2.1_amd64.deb
+sudo gdebi -n zoom_amd64.deb
+
+sudo apt update
+sudo apt -y full-upgrade
