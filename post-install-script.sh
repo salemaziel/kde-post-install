@@ -127,6 +127,20 @@ sudo apt update
 sudo apt install spotify-client -y
 
 
+if [ -z $(which gdebi) ]; then
+    echo " Please install gdebi to continue "
+    exit 1;
+fi
+
+
+echo " *** installing caprine:fb messenger for linux *** "
+curl -s https://api.github.com/repos/sindresorhus/caprine/releases/latest \
+| grep "browser_download_url.*deb" \
+| cut -d : -f 2,3 \
+| tr -d \" \
+| tail -1 | wget -O caprine.deb -qi -
+sudo gdebi -n caprine.deb
+
 
 echo " *** Installing from Zips folder ** "
 
@@ -134,7 +148,7 @@ sudo chown -R $USER:$USER ~/Documents/Zips
 
 cd ~/Documents/Zips
 sudo gdebi -n bleachbit_2.2_all_ubuntu1810.deb
-sudo gdebi -n caprine_2.30.2_amd64.deb
+#sudo gdebi -n caprine_2.30.2_amd64.deb
 sudo gdebi -n discord-0.0.9.deb
 sudo gdebi -n encryptr_2.0.0-1_amd64.deb
 sudo gdebi -n firejail-apparmor_0.9.56-LTS_1_amd64.deb
@@ -163,12 +177,24 @@ sudo apt update
 sudo apt -y install brave-browser brave-keyring
 
 
-#sudo rm -f /usr/local/bin/basecamp
-echo " ** Installing Basecamp. There might be some permissions issues ** "
-sleep 2
-sudo cp -r ~/Documents/Zips/basecamp-linux-x64 /opt/basecamp-linux-x64
+echo " *** downloading and installing Basecamp: Unofficial app for Linux *** "
+curl -s https://api.github.com/repos/arturock/basecamp-linux/releases/latest \
+| grep "browser_download_url.*x64.tar.xz" \
+| cut -d : -f 2,3 \
+| tr -d \" \
+| tail -1 | wget -O basecamp-linux-x64.tar.xz -qi -
+
+tar -xzvf basecamp-linux-x64.tar.xz
+sudo mv basecamp-linux-x64n /opt/basecamp-linux-x64
 sudo chown -R root:root /opt/basecamp-linux-x64
+sudo find /opt/basecamp-linux-x64 -type d -exec chmod 755 {} \;
+sudo find /opt/basecamp-linux-x64 -type f -exec chmod 644 {} \;
+sudo chmod +x /opt/basecamp-linux-x64/basecamp
+sudo chmod +x /opt/basecamp-linux-x64/libnode.so
+sudo chmod +x /opt/basecamp-linux-x64/libffmpeg.so
 sudo ln -s /opt/basecamp-linux-x64/basecamp /usr/local/bin/basecamp
+
+echo " ** Basecamp is installed. Find it in the application menu or run it from the terminal with the command: basecamp ** "p
 
 
 
@@ -282,6 +308,13 @@ echo " ** All done. Please reboot the computer ** "
 # ./cloud_sql_proxy
 
 
+
+
+##################### OTHERS, dont usually install but nice to have ##########
+
+#echo " *** Installing Skype *** "
+#wget https://go.skype.com/skypeforlinux-64.deb
+#sudo gdebi -n skypeforlinux-64.deb
 
 
 
