@@ -1,0 +1,70 @@
+[Containments][117][General]
+AppletOrder=118;119;120;121;123
+
+[Containments][122][General]
+extraItems=org.kde.plasma.notifications,RSS_feeds,org.kde.plasma.devicenotifier,org.kde.plasma.vault,org.kde.plasma.networkmanagement,org.kde.plasma.keyboardindicator,org.kde.discovernotifier,org.kde.plasma.printmanager,org.kde.plasma.volume,org.kde.kdeconnect,org.kde.plasma.clipboard,org.kde.plasma.mediacontroller,org.kde.plasma.bluetooth,org.kde.plasma.battery
+knownItems=org.kde.plasma.notifications,RSS_feeds,org.kde.plasma.devicenotifier,org.kde.plasma.vault,org.kde.plasma.networkmanagement,org.kde.plasma.keyboardindicator,org.kde.discovernotifier,org.kde.plasma.printmanager,org.kde.plasma.volume,org.kde.kdeconnect,org.kde.plasma.clipboard,org.kde.plasma.mediacontroller,org.kde.plasma.bluetooth,org.kde.plasma.battery
+
+[Containments][174][General]
+AppletOrder=219;176;198;206;207;194
+
+[DownloadDialog Settings]
+Height 768=494
+Width 1366=700
+
+[KFileDialog Settings]
+Recent Files[$e]=wallhaven-359816.jpg,file:$HOME/Pictures/ftp-acab.jpg,file:$HOME/Pictures/hulu.png,file:$HOME/Pictures/protonmail.png,file:$HOME/Pictures/Walls/wallhaven-260833.jpg,file:$HOME/Pictures/New Folder9/all/wallhaven-720254.jpg,file:$HOME/Pictures/New Folder9/all/wallhaven-716568.jpg,file:$HOME/Pictures/New Folder9/all/wallhaven-724994.jpg,file:$HOME/Pictures/Wallpapers/wallhaven-359816.jpg
+Recent URLs[$e]=file:$HOME/Pictures/
+
+[KPropertiesDialog]
+Height 768=464
+Width 1366=418
+
+[PlasmaRunnerManager]
+LaunchCounts=1 services_woeusbgui.desktop
+pluginWhiteList=services
+
+[PlasmaViews][Panel 117][Horizontal1366]
+thickness=36
+
+[PlasmaViews][Panel 136]
+alignment=132
+
+[PlasmaViews][Panel 136][Horizontal1024]
+thickness=30
+
+[PlasmaViews][Panel 136][Horizontal1366]
+thickness=28
+
+[PlasmaViews][Panel 136][Horizontal1920]
+thickness=30
+
+[PlasmaViews][Panel 174]
+alignment=132
+
+[PlasmaViews][Panel 174][Horizontal1366]
+thickness=36
+
+[PlasmaViews][Panel 174][Vertical768]
+minLength=648
+thickness=30
+
+[PlasmaViews][Panel 199]
+alignment=132
+panelVisibility=1
+
+[PlasmaViews][Panel 199][Horizontal1366]
+thickness=36
+
+[PlasmaViews][Panel 199][Vertical768]
+maxLength=730
+minLength=693
+offset=0
+thickness=30
+
+[ScreenConnectors]
+0=HDMI-1
+1=LVDS-1
+
+[Updates]
+performed=/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/obsolete_kickoffrc.js
