@@ -7,11 +7,15 @@ sudo apt -y full-upgrade
 ##apt packages to install
 
 
-sudo apt install mkalias magic-wormhole tlp tlp-rdw kubuntu-restricted-extras gufw eog eog-plugins eog-plugins-common uget rsync dialog curl ufw apparmor-profiles apparmor-profiles-extra apparmor-utils python3-apparmor python3-libapparmor gdebi ksystemlog mpv wipe gparted kio-gdrive kaccounts-integration plasma-widgets-addons lastpass-cli zulumount-cli zulumount-gui zulucrypt-cli zulucrypt-gui cryptmount curl openvpn network-manager-openvpn tar gimp libreoffice fatcat fatresize fatsort hfsprogs disktype exfat-utils hfsplus hfsutils network-manager-openvpn-gnome howdoi nmap zenmap harden-doc linssid bash bc bzip2 coreutils diffutils ffmpeg file findutils fuse fuseiso gawk gnupg gnupg2 htop isomd5sum kde-runtime mlocate net-tools poppler-utils procps psmisc pv sed tar unrar util-linux wget xdg-utils xterm zip lastpass-cli ecryptfs-utils overlayroot whois wikipedia2text magic-wormhole secure-delete debsigs debsums debhelper atop filezilla kvpnc linssid lsat mat moreutils ndiff ngrep nicstat nictools-pci nield openclipart-png procinfo git rusers traceroute whereami cmake krename localepurge skrooge gimp skrooge makejail psad hwinfo progress dolphin-plugins powertop xdiagnose health-check converseen imgp mplayer vlc clamav clamav-base clamav-daemon clamav-docs clamav-freshclam clamdscan clamfs clamtk ffmpeg redshift plasma-applet-redshift-control apt-listchanges debian-goodies debsecan debsums libpam-passwdqc gufw ffmpeg nikto mumble eog eog-plugins apparmor apparmor-utils apparmor-profiles apparmor-profiles-extra apt-transport-https p7zip-full gparted gnome-disk-utility plasma-widgets-addons wget curl dialog python python3 python3-pip git mumble redshift plasma-applet-redshift-control eog eog-plugins eog-plugins-common filelight mkalias netdiscover net-tools netcat unzip tar ddgr kolourpaint mtpaint qml-module-org-kde-kaccounts dialog netdiscover kde-config-systemd acpi tilix inkscape inkscape-open-symbols inkscape inkscape-open-symbols thunderbird inkscape inkscape-open-symbols build-essential libkf5config-dev libkdecorations2-dev libqt5x11extras5-dev qtdeclarative5-dev libkf5guiaddons-dev libkf5configwidgets-dev libkf5windowsystem-dev libkf5coreaddons-dev gettext apt-transport-https bash-completion unrar tar unzip kaccounts-integration latte-dock kio-gdrive kaccounts-integration clamav clamtk clamav-freshclam clamav-unofficial-sigs plasma-applet-redshift-control redshift netsniff-ng kwrite mousepad latte-dock kwrite netsniff-ng mesa-utils wmctrl curl lm-sensors hddtemp smartmontools libcpanel-json-xs-perl mkalias libqtwebkit-qmlwebkitplugin libqt5webview5 qml qml-module-org-kde-charts qml-module-org-kde-okular qml-module-qtgstreamer qml-module-qtquick-extras qml-module-qtquick-shapes dialog openresolv tlp tlp-rdw kubuntu-restricted-extras plasma-widgets-addons chromium-browser netsniff-ng gufw eog eog-plugins eog-plugins-common kio-gdrive rsync uget mesa-utils wmctrl wget curl lm-sensors hddtemp smartmontools libcpanel-json-xs-perl libappindicator1 libnotify -y
+sudo apt install libqtdee3 python-pyside2.qtquick python3-pyside2.qtquick python-pyside2.qtquickwidgets python-pyside2.qtquick python3-pyside2.qtquickwidgets mkalias magic-wormhole tlp tlp-rdw kubuntu-restricted-extras gufw eog eog-plugins eog-plugins-common uget rsync dialog curl ufw apparmor-profiles apparmor-profiles-extra apparmor-utils python3-apparmor python3-libapparmor gdebi ksystemlog mpv wipe gparted kio-gdrive kaccounts-integration plasma-widgets-addons lastpass-cli zulumount-cli zulumount-gui zulucrypt-cli zulucrypt-gui cryptmount curl openvpn network-manager-openvpn tar gimp libreoffice fatcat fatresize fatsort hfsprogs disktype exfat-utils hfsplus hfsutils network-manager-openvpn-gnome howdoi nmap zenmap harden-doc linssid bash bc bzip2 coreutils diffutils ffmpeg file findutils fuse fuseiso gawk gnupg gnupg2 htop isomd5sum kde-runtime mlocate net-tools poppler-utils procps psmisc pv sed tar unrar util-linux wget xdg-utils xterm zip lastpass-cli ecryptfs-utils overlayroot whois wikipedia2text magic-wormhole secure-delete debsigs debsums debhelper atop filezilla kvpnc linssid lsat mat moreutils ndiff ngrep nicstat nictools-pci nield openclipart-png procinfo git rusers traceroute whereami cmake krename localepurge skrooge gimp skrooge makejail psad hwinfo progress dolphin-plugins powertop xdiagnose health-check converseen imgp mplayer vlc clamav clamav-base clamav-daemon clamav-docs clamav-freshclam clamdscan clamfs clamtk ffmpeg redshift plasma-applet-redshift-control apt-listchanges debian-goodies debsecan debsums libpam-passwdqc gufw ffmpeg nikto mumble eog eog-plugins apparmor apparmor-utils apparmor-profiles apparmor-profiles-extra apt-transport-https p7zip-full gparted gnome-disk-utility plasma-widgets-addons wget curl dialog python python3 python3-pip git mumble redshift plasma-applet-redshift-control eog eog-plugins eog-plugins-common filelight mkalias netdiscover net-tools netcat unzip tar ddgr kolourpaint mtpaint qml-module-org-kde-kaccounts dialog netdiscover kde-config-systemd acpi tilix inkscape inkscape-open-symbols inkscape inkscape-open-symbols thunderbird inkscape inkscape-open-symbols build-essential libkf5config-dev libkdecorations2-dev libqt5x11extras5-dev qtdeclarative5-dev libkf5guiaddons-dev libkf5configwidgets-dev libkf5windowsystem-dev libkf5coreaddons-dev gettext apt-transport-https bash-completion unrar tar unzip kaccounts-integration latte-dock kio-gdrive kaccounts-integration clamav clamtk clamav-freshclam clamav-unofficial-sigs plasma-applet-redshift-control redshift netsniff-ng kwrite mousepad latte-dock kwrite netsniff-ng mesa-utils wmctrl curl lm-sensors hddtemp smartmontools libcpanel-json-xs-perl mkalias libqtwebkit-qmlwebkitplugin libqt5webview5 qml qml-module-org-kde-charts qml-module-org-kde-okular qml-module-qtgstreamer qml-module-qtquick-extras qml-module-qtquick-shapes dialog openresolv tlp tlp-rdw kubuntu-restricted-extras plasma-widgets-addons chromium-browser netsniff-ng gufw eog eog-plugins eog-plugins-common kio-gdrive rsync uget mesa-utils wmctrl wget curl lm-sensors hddtemp smartmontools libcpanel-json-xs-perl libappindicator1 -y
 
 sleep 2
 
-read -p "Were there errors (WARNING: THE REST OF THE SCRIPT WILL NOT WORK IF THERE WERE ERRORS. ANSWER ACCURATELY)?[y/n] " errors_answer
+echo "                                                       "
+echo "                                                       "
+echo " ***************************************************** "
+echo "                                                       "
+read -p "Were there errors? (WARNING: THE REST OF THE SCRIPT WILL NOT WORK IF THERE WERE ERRORS. ANSWER ACCURATELY)?[y/n] " errors_answer
 if test $errors_answer == "y"; then
     echo " ** Quitting, fix errors before running the rest of the script.  ** "
     exit 1
@@ -19,7 +23,7 @@ else
     echo " Cool, continuing "
 fi
 
-sudo apt purge exim4 avahi-autoipd avahi-daemon cups cups-browsed unattended-upgrades cryptsetup-initramfs -y
+#sudo apt purge exim4 avahi-autoipd avahi-daemon cups cups-browsed unattended-upgrades cryptsetup-initramfs -y
 
 
 ## install repos and their keys and their programs
@@ -39,7 +43,7 @@ sudo chmod a+rx /usr/local/bin/youtube-dl
 
 
 echo " ***********installing Nixnote2 (linux interface for evernote) ******** "
-sudo add-apt-repository ppa:nixnote/nixnote2-stable
+sudo add-apt-repository ppa:nixnote/nixnote2-stable -y
 sudo apt update
 sudo apt -y install nixnote2
 
@@ -141,6 +145,8 @@ curl -s https://api.github.com/repos/sindresorhus/caprine/releases/latest \
 | tr -d \" \
 | tail -1 | wget -O caprine.deb -qi -
 sudo gdebi -n caprine.deb
+mv ~/kde-post-install/icons/caprine.png ~/Pictures/icons/caprine.png
+
 
 
 echo " *** installing teamviewer for linux *** "
@@ -149,10 +155,10 @@ wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 sudo gdebi -n teamviewer_amd64.deb
 
 
-echo " *** installing pulse-sms *** "
-cd ~/Documents/Zips ;
-wget https://github.com/klinker-apps/messenger-desktop/releases/download/v3.4.3/pulse-sms-3.4.3-amd64.deb
-sudo gdebi -n pulse-sms*.deb
+#echo " *** installing pulse-sms *** "
+#cd ~/Documents/Zips ;
+#wget https://github.com/klinker-apps/messenger-desktop/releases/download/v3.4.3/pulse-sms-3.4.3-amd64.deb
+#sudo gdebi -n pulse-sms*.deb
 
 
 echo " *** installing google chrome *** "
@@ -205,14 +211,27 @@ curl -s https://api.github.com/repos/arturock/basecamp-linux/releases/latest \
 | tail -1 | wget -O basecamp-linux-x64.tar.xz -qi -
 
 tar -xzvf basecamp-linux-x64.tar.xz
-sudo mv basecamp-linux-x64n /opt/basecamp-linux-x64
+sudo mv basecamp-linux-x64 /opt/basecamp-linux-x64
 sudo chown -R root:root /opt/basecamp-linux-x64
 sudo find /opt/basecamp-linux-x64 -type d -exec chmod 755 {} \;
 sudo find /opt/basecamp-linux-x64 -type f -exec chmod 644 {} \;
 sudo chmod +x /opt/basecamp-linux-x64/basecamp
 sudo chmod +x /opt/basecamp-linux-x64/libnode.so
 sudo chmod +x /opt/basecamp-linux-x64/libffmpeg.so
+sudo rm /usr/local/bin/basecamp
 sudo ln -s /opt/basecamp-linux-x64/basecamp /usr/local/bin/basecamp
+mv ~/kde-post-install/icons/basecamp.png ~/Pictures/icons/basecamp.png
+echo "[Desktop Entry]
+Name=Basecamp
+Exec="/usr/local/bin/basecamp" %U
+Terminal=false
+Icon=/home/pc/Pictures/icons/basecamp.png
+Type=Application
+Categories=Internet;Project Management;Utilities
+StartupNotify=false" | sudo tee /usr/share/applications/basecamp.desktop
+
+
+
 
 #echo " ** Basecamp is installed. Find it in the application menu or run it from the terminal with #the command: basecamp ** "p
 
@@ -237,28 +256,36 @@ sudo apt update
 sudo apt -y install nodejs
 npm config set prefix '~/.npm-global'
 source ~/.profile
-npm install npm@latest -g
+npm install -g npm
+echo "if [ -d "$HOME/.npm-global/bin" ] ; then
+    PATH="$HOME/.npm-global/bin:$PATH"
+fi" >> ~/.profile
+source ~/.profile
+npm install -g nativefier
+npm install -g gatsby-cli
 
-echo " *** Installing from Zips folder ** "
 
-sudo chown -R $USER:$USER ~/Documents/Zips
 
-cd ~/Documents/Zips
-sudo gdebi -n bleachbit_2.2_all_ubuntu1810.deb
+#echo " *** Installing from Zips folder ** "
+
+#sudo chown -R $USER:$USER ~/Documents/Zips
+
+#cd ~/Documents/Zips
+#sudo gdebi -n bleachbit_2.2_all_ubuntu1810.deb
 #sudo gdebi -n caprine_2.30.2_amd64.deb
-sudo gdebi -n discord-0.0.9.deb
-sudo gdebi -n encryptr_2.0.0-1_amd64.deb
-sudo gdebi -n firejail-apparmor_0.9.56-LTS_1_amd64.deb
-sudo gdebi -n firetools_0.9.52_1_amd64.deb
+#sudo gdebi -n discord-0.0.9.deb
+#sudo gdebi -n encryptr_2.0.0-1_amd64.deb
+#sudo gdebi -n firejail-apparmor_0.9.56-LTS_1_amd64.deb
+#sudo gdebi -n firetools_0.9.52_1_amd64.deb
 #sudo gdebi -n google-chrome-stable_current_amd64.deb
 #sudo gdebi -n protonmail-desktop_0.5.9_amd64.deb
 #sudo gdebi -n pulse-sms-3.1.4-amd64.deb
 #sudo gdebi -n slack-desktop-3.3.7-amd64.deb
-sudo gdebi -n stacer_1.0.9_amd64.deb
-sudo gdebi -n upwork_5.1.0.647_amd64.deb
+#sudo gdebi -n stacer_1.0.9_amd64.deb
+#sudo gdebi -n upwork_5.1.0.647_amd64.deb
 #sudo gdebi -n virtualbox-6.0_6.0.6-130049~Ubuntu~bionic_amd64.deb
 #sudo gdebi -n vivaldi-stable_2.3.1440.60-1_amd64.deb
-sudo gdebi -n youtube-music-desktop_0.2.1_amd64.deb
+#sudo gdebi -n youtube-music-desktop_0.2.1_amd64.deb
 #sudo gdebi -n zoom_amd64.deb
 
 sudo apt update
@@ -268,6 +295,10 @@ sudo apt -y full-upgrade
 
 
 #Fixing Tilix
+echo "if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi >> ~/.bashrc
+
 sudo ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
 
 
@@ -277,7 +308,7 @@ sudo mkdir -p /etc/default/grub.d
 echo 'GRUB_CMDLINE_LINUX_DEFAULT="$GRUB_CMDLINE_LINUX_DEFAULT apparmor=1 security=apparmor"'  | sudo tee /etc/default/grub.d/apparmor.cfg
 sudo update-grub
 cd ;
-sudo aa-enforce firejail-default
+#sudo aa-enforce firejail-default
 
 
 
