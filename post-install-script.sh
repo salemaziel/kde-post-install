@@ -116,6 +116,7 @@ wget "https://github.com/ProtonVPN/protonvpn-cli/raw/master/protonvpn-cli.sh" -O
 #   -h, --help                          Show this help message. " >> ~/protonvpn-commands.txt
 #
    
+cp -r ~/kde-post-install/icons ~/Pictures/icons   
    
 echo " *** installing signal messenger for desktop *** "
 curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
@@ -145,7 +146,6 @@ curl -s https://api.github.com/repos/sindresorhus/caprine/releases/latest \
 | tr -d \" \
 | tail -1 | wget -O caprine.deb -qi -
 sudo gdebi -n caprine.deb
-mv ~/kde-post-install/icons/caprine.png ~/Pictures/icons/caprine.png
 
 
 
