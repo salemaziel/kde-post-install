@@ -67,53 +67,6 @@ fi
 ## install repos and their keys and their programs
 
 
-echo_prompt "Select the Applications you'd like to install. Arrow Keys to navigate, spacebar to Select/Unselect, Esc to exit. When Finished selecting, hit tab to select Finished, and press Enter "
-#!/bin/bash
-cmd=(dialog --separate-output --checklist "Select options:" 22 76 16)
-options=(1 "Etcher: Live USB creator" off    # any option can be set to default to "on"
-         2 "Youtube-DL: Internet Video Downloader" off
-         3 "Nixnote2: Linux interface for Evernote" off
-         4 "Inxi: System/Hardware Identifier" off
-         5 "ProtonVPN-CLI: ProtonVPN-CLI-NG" off
-         6 "Signal: Encrypted Messenger for Desktop" off
-         7 "Spotify"
-         8 "Caprine: Facebook Messenger for Linux" off
-         9 "TeamViewer"
-         10 "Tor" off
-         10 "OnionShare: Share Files Securely Over Tor Network (Needs Tor)" off
-         11 "TorBrowser-Launcher (Needs Tor)" off
-         12 "Google Chrome" off
-         13 "Slack" off
-         14 "VirtualBox" off
-         15 "Vivaldi Browser" off
-         16 "Zoom: Video Conferences" off
-         17 "Brave Browser" off
-         18 "Skype Video Chat" off
-         19 "BaseCamp: Unofficial Desktop App" off
-         20 "Google Cloud Platform SDK CommandLine Tools" off
-         21 "NodeJS 12 && NPM package manager" off
-         22 "YARN: Additional NodeJS packagemanager" off
-         23 "FireJail: Application Sandbox"
-)
-choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
-clear
-for choice in $choices
-do
-    case $choice in
-        1)
-            echo "Etcher: Live USB creator"
-            ;;
-        2)
-            echo "Youtube-DL: Internet Video Downloader"
-            ;;
-        3)
-            echo "Nixnote2 (Linux interface for Evernote)"
-            ;;
-        4)
-            echo "Inxi (System/Hardware Identifier)"
-            ;;
-    esac
-done
 
 
 
@@ -208,11 +161,6 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo gdebi -n google-chrome-stable*.deb
 
 
-#echo " *** installing protonmail desktop:unofficial *** "
-#cd ~/Documents/Zips ;
-#wget https://github.com/protonmail-desktop/application/releases/download/v1.0.2/protonmail-desktop-unofficial_1.0.2_amd64.deb
-#sudo gdebi -n protonmail-desktop-unofficial*.deb
-
 
 echo_info " *** installing slack *** "
 cd ~/Documents/Zips ;
@@ -280,7 +228,7 @@ sudo apt install google-cloud-sdk
 #gcloud components update
 
 
-## install nodeJS 10
+## install nodeJS 12
 echo_info " ** Installing NodeJS 12 and npm node package manager, along with gatsby, surge, and nativefier ** "
 cd ;
 sudo apt install gcc g++ make -y
@@ -296,6 +244,12 @@ npm install -g gatsby-cli
 npm install -g surge
 npm install  -g nativefier
 
+
+# install firejail
+echo_info "Installing Firejail: Linux SUID Sandbox"
+cd ~/Documents/Zips ;
+wget https://sourceforge.net/projects/firejail/files/LTS/firejail-apparmor_0.9.56.2-LTS_1_amd64.deb
+sudo gdebi -n firejail-apparmor_0.9.56.2-LTS_1_amd64.deb
 
 
 #echo " *** Installing from Zips folder ** "
