@@ -17,6 +17,26 @@ echo_debug()  { echo -e "${ANSI_VIO}${@}${ANSI_RST}"; }
 echo_fail()   { echo -e "${ANSI_RED}${@}${ANSI_RST}"; }
 
 
+echo_prompt '
+   _____            __                    _                    __ __    ____     ______              
+  / ___/  ____ _   / /  ___    ____ ___  ( )   _____          / //_/   / __ \   / ____/              
+  \__ \  / __ `/  / /  / _ \  / __ `__ \ |/   / ___/         / ,<     / / / /  / __/                 
+ ___/ / / /_/ /  / /  /  __/ / / / / / /     (__  )         / /| |   / /_/ /  / /___                 
+/_______\__,_/  /_/   \___/___/ /_/ /_/  ________/         /_/ |__  /_____/  /_____/  '  
+
+echo_info '
+     ____                   __            ____                   __             __  
+    / __ \  ____    _____  / /_          /  _/   ____    _____  / /_  ____ _   / /   / /  ___    _____
+   / /_/ / / __ \  / ___/ / __/ ______   / /    / __ \  / ___/ / __/ / __ `/  / /   / /  / _ \  / __`/
+  / ____/ / /_/ / (__  ) / /_  /_____/ _/ /    / / / / (__  ) / /_  / /_/ /  / /   / /  /  __/ / /    
+ /_/      \____/ /____/  \__/         /___/   /_/ /_/ /____/  \__/  \__,_/  /_/   /_/   \___/ /_/     
+'                                                                                           
+
+sleep 3
+exit 0
+
+
+
 
 echo_info "Running updates first"
 
@@ -28,11 +48,11 @@ sudo DEBIAN_FRONTEND=noninteractive apt -y full-upgrade
 
 echo_info "Installing a shitload of packages"
 
-sudo DEBIAN_FRONTEND=noninteractive apt install magic-wormhole openvpn dialog python3-pip python3-setuptools tlp tlp-rdw kubuntu-restricted-extras gufw eog eog-plugins eog-plugins-common uget rsync dialog curl firejail firejail-profiles ufw apparmor-profiles apparmor-profiles-extra apparmor-utils python3-apparmor python3-libapparmor gdebi ksystemlog mpv wipe gparted kio-gdrive kaccounts-integration plasma-widgets-addons lastpass-cli zulumount-cli zulumount-gui zulucrypt-cli zulucrypt-gui cryptmount curl openvpn network-manager-openvpn tar gimp libreoffice fatcat fatresize fatsort hfsprogs disktype exfat-utils hfsplus hfsutils network-manager-openvpn-gnome howdoi nmap zenmap harden-doc linssid bash bc bzip2 coreutils diffutils ffmpeg file findutils fuse fuseiso gawk gnupg gnupg2 htop isomd5sum  mlocate net-tools poppler-utils procps psmisc pv sed tar unrar util-linux wget xdg-utils xterm zip lastpass-cli ecryptfs-utils overlayroot whois wikipedia2text magic-wormhole secure-delete debsigs debsums debhelper atop filezilla linssid mat moreutils ndiff ngrep nicstat nield openclipart-png procinfo git rusers traceroute whereami cmake krename localepurge skrooge gimp skrooge makejail psad hwinfo progress dolphin-plugins powertop xdiagnose health-check converseen imgp mplayer vlc clamav clamav-base clamav-daemon clamav-docs clamav-freshclam clamdscan clamtk ffmpeg redshift plasma-applet-redshift-control apt-listchanges debian-goodies debsecan debsums libpam-passwdqc gufw ffmpeg nikto mumble eog eog-plugins apparmor apparmor-utils apparmor-profiles apparmor-profiles-extra apt-transport-https p7zip-full gparted gnome-disk-utility plasma-widgets-addons wget curl dialog python python3 python3-pip git mumble redshift plasma-applet-redshift-control eog eog-plugins eog-plugins-common filelight netdiscover net-tools netcat unzip tar ddgr kolourpaint mtpaint qml-module-org-kde-kaccounts dialog netdiscover kde-config-systemd acpi tilix inkscape inkscape-open-symbols inkscape inkscape-open-symbols thunderbird inkscape inkscape-open-symbols build-essential libkf5config-dev libkdecorations2-dev libqt5x11extras5-dev qtdeclarative5-dev libkf5guiaddons-dev libkf5configwidgets-dev libkf5windowsystem-dev libkf5coreaddons-dev gettext apt-transport-https bash-completion unrar tar unzip kaccounts-integration latte-dock kio-gdrive kaccounts-integration clamav clamtk clamav-freshclam clamav-unofficial-sigs plasma-applet-redshift-control redshift netsniff-ng kwrite mousepad latte-dock kwrite netsniff-ng mesa-utils wmctrl curl lm-sensors hddtemp smartmontools libcpanel-json-xs-perl mkalias libqtwebkit-qmlwebkitplugin libqt5webview5 qml qml-module-org-kde-charts qml-module-org-kde-okular qml-module-qtgstreamer qml-module-qtquick-extras qml-module-qtquick-shapes dialog openresolv tlp tlp-rdw kubuntu-restricted-extras plasma-widgets-addons chromium-browser netsniff-ng gufw eog eog-plugins eog-plugins-common kio-gdrive rsync uget mesa-utils wmctrl wget curl lm-sensors hddtemp smartmontools libcpanel-json-xs-perl -y
+sudo DEBIAN_FRONTEND=noninteractive apt install gcc wireguard g++ make magic-wormhole openvpn dialog python3-pip python3-setuptools tlp tlp-rdw kubuntu-restricted-extras gufw eog eog-plugins eog-plugins-common uget rsync dialog curl firejail firejail-profiles ufw apparmor-profiles apparmor-profiles-extra apparmor-utils python3-apparmor python3-libapparmor gdebi ksystemlog mpv wipe gparted kio-gdrive kaccounts-integration plasma-widgets-addons lastpass-cli zulumount-cli zulumount-gui zulucrypt-cli zulucrypt-gui cryptmount curl openvpn network-manager-openvpn tar gimp libreoffice fatcat fatresize fatsort hfsprogs disktype exfat-utils hfsplus hfsutils network-manager-openvpn-gnome howdoi nmap zenmap harden-doc linssid bash bc bzip2 coreutils diffutils ffmpeg file findutils fuse fuseiso gawk gnupg gnupg2 htop isomd5sum  mlocate net-tools poppler-utils procps psmisc pv sed tar unrar util-linux wget xdg-utils xterm zip lastpass-cli ecryptfs-utils overlayroot whois wikipedia2text magic-wormhole secure-delete debsigs debsums debhelper atop filezilla linssid mat moreutils ndiff ngrep nicstat nield openclipart-png procinfo git rusers traceroute whereami cmake krename localepurge skrooge gimp skrooge makejail psad hwinfo progress dolphin-plugins powertop xdiagnose health-check converseen imgp mplayer vlc clamav clamav-base clamav-daemon clamav-docs clamav-freshclam clamdscan clamtk ffmpeg redshift plasma-applet-redshift-control apt-listchanges debian-goodies debsecan debsums libpam-passwdqc gufw ffmpeg nikto mumble eog eog-plugins apparmor apparmor-utils apparmor-profiles apparmor-profiles-extra apt-transport-https p7zip-full gparted gnome-disk-utility plasma-widgets-addons wget curl dialog python python3 python3-pip git mumble redshift plasma-applet-redshift-control eog eog-plugins eog-plugins-common filelight netdiscover net-tools netcat unzip tar ddgr kolourpaint mtpaint qml-module-org-kde-kaccounts dialog netdiscover kde-config-systemd acpi tilix inkscape inkscape-open-symbols inkscape inkscape-open-symbols thunderbird inkscape inkscape-open-symbols build-essential libkf5config-dev libkdecorations2-dev libqt5x11extras5-dev qtdeclarative5-dev libkf5guiaddons-dev libkf5configwidgets-dev libkf5windowsystem-dev libkf5coreaddons-dev gettext apt-transport-https bash-completion unrar tar unzip kaccounts-integration latte-dock kio-gdrive kaccounts-integration clamav clamtk clamav-freshclam clamav-unofficial-sigs plasma-applet-redshift-control redshift netsniff-ng kwrite mousepad latte-dock kwrite netsniff-ng mesa-utils wmctrl curl lm-sensors hddtemp smartmontools libcpanel-json-xs-perl mkalias libqtwebkit-qmlwebkitplugin libqt5webview5 qml qml-module-org-kde-charts qml-module-org-kde-okular qml-module-qtgstreamer qml-module-qtquick-extras qml-module-qtquick-shapes dialog openresolv tlp tlp-rdw kubuntu-restricted-extras plasma-widgets-addons chromium-browser netsniff-ng gufw eog eog-plugins eog-plugins-common kio-gdrive rsync uget mesa-utils wmctrl wget curl lm-sensors hddtemp smartmontools libcpanel-json-xs-perl -y
 
 sleep 2
 
-read -p "${ANSI_WHT}Were there errors? ${ANSI_RST} ${ANSI_RED}(WARNING: THE REST OF THE SCRIPT WILL NOT WORK IF THERE WERE ERRORS. ANSWER ACCURATELY!) [y/n]${ANSI_RST} "
+read -p "${ANSI_WHT}Were there errors? [y/n]${ANSI_RST} " errors_answer
 if test $errors_answer == "y"; then
     echo_warn " ** Quitting, fix errors before running the rest of the script (aka delete the name of the package from this script that is causing your problems ** "
     exit 1
@@ -40,11 +60,61 @@ else
     echo_info "Cool, continuing"
 fi
 
-echo_info "Purging some stuff I dont need"
-sudo apt purge exim4 avahi-autoipd avahi-daemon unattended-upgrades cryptsetup-initramfs -y
+#echo_info "Purging some stuff I dont need"
+#sudo apt purge exim4 avahi-autoipd avahi-daemon unattended-upgrades cryptsetup-initramfs -y
 
 
 ## install repos and their keys and their programs
+
+
+echo_prompt "Select the Applications you'd like to install. Arrow Keys to navigate, spacebar to Select/Unselect, Esc to exit. When Finished selecting, hit tab to select Finished, and press Enter "
+#!/bin/bash
+cmd=(dialog --separate-output --checklist "Select options:" 22 76 16)
+options=(1 "Etcher: Live USB creator" off    # any option can be set to default to "on"
+         2 "Youtube-DL: Internet Video Downloader" off
+         3 "Nixnote2: Linux interface for Evernote" off
+         4 "Inxi: System/Hardware Identifier" off
+         5 "ProtonVPN-CLI: ProtonVPN-CLI-NG" off
+         6 "Signal: Encrypted Messenger for Desktop" off
+         7 "Spotify"
+         8 "Caprine: Facebook Messenger for Linux" off
+         9 "TeamViewer"
+         10 "Tor" off
+         10 "OnionShare: Share Files Securely Over Tor Network (Needs Tor)" off
+         11 "TorBrowser-Launcher (Needs Tor)" off
+         12 "Google Chrome" off
+         13 "Slack" off
+         14 "VirtualBox" off
+         15 "Vivaldi Browser" off
+         16 "Zoom: Video Conferences" off
+         17 "Brave Browser" off
+         18 "Skype Video Chat" off
+         19 "BaseCamp: Unofficial Desktop App" off
+         20 "Google Cloud Platform SDK CommandLine Tools" off
+         21 "NodeJS 12 && NPM package manager" off
+         22 "YARN: Additional NodeJS packagemanager" off
+         23 "FireJail: Application Sandbox"
+)
+choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
+clear
+for choice in $choices
+do
+    case $choice in
+        1)
+            echo "Etcher: Live USB creator"
+            ;;
+        2)
+            echo "Youtube-DL: Internet Video Downloader"
+            ;;
+        3)
+            echo "Nixnote2 (Linux interface for Evernote)"
+            ;;
+        4)
+            echo "Inxi (System/Hardware Identifier)"
+            ;;
+    esac
+done
+
 
 
 echo_info " *********** Installing Etcher: Live USB creator ******** "
@@ -152,8 +222,8 @@ sudo gdebi -n slack-desktop*.deb
 
 echo_info " *** installing virtualbox *** "
 cd ~/Documents/Zips ;
-#wget https://download.virtualbox.org/virtualbox/6.0.8/virtualbox-6.0_6.0.8-130520~Ubuntu~bionic_amd64.deb
-#wget https://download.virtualbox.org/virtualbox/6.0.8/Oracle_VM_VirtualBox_Extension_Pack-6.0.8.vbox-extpack
+wget https://download.virtualbox.org/virtualbox/6.0.8/virtualbox-6.0_6.0.8-130520~Ubuntu~bionic_amd64.deb
+wget https://download.virtualbox.org/virtualbox/6.0.8/Oracle_VM_VirtualBox_Extension_Pack-6.0.8.vbox-extpack
 sudo gdebi -n virtualbox-6.0_6.0.14-133895~Ubuntu~bionic_amd64.deb
 
 
