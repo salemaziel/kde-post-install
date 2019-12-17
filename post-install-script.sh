@@ -93,7 +93,10 @@ options=(1 "Etcher: Live USB creator" off    # any option can be set to default 
          20 "Google Cloud Platform SDK CommandLine Tools" off
          21 "NodeJS 12 && NPM package manager" off
          22 "YARN: Additional NodeJS packagemanager" off
-         23 "FireJail: Application Sandbox"
+         23 "FireJail: Application Sandbox" off
+         24 "Standard Notes: Encrypted Device-Syncing Notes" off
+         25 ""
+
 )
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
@@ -343,6 +346,9 @@ sudo update-grub
 sudo aa-enforce firejail-default
 
 
+
+https://github.com/standardnotes/desktop/releases/download/v3.0.23/Standard-Notes-3.0.23.AppImage
+https://sourceforge.net/projects/firejail/files/LTS/firejail-apparmor_0.9.56.2-LTS_1_amd64.deb
 
 #read -p "${ANSI_WHT}Install all the latest from the Kubuntu repository? [y/n] ${ANSI_RST}" answer_kubuntuppa
 #if test $answer_kubuntuppa == "y" ; then
