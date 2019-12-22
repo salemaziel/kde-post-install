@@ -4,13 +4,11 @@ if [[ -z $(which node) ]]; then
     echo " ** Installing NodeJS 10 and npm node package manager ** "
     cd ;
     mkdir ~/.npm-global
-    curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
+    curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
     sudo apt update
     sudo apt -y install nodejs
     npm config set prefix "$HOME/.npm-global"
-    echo "if [[ -d '$HOME/.npm-global/bin' ]] ; then
-        PATH='$HOME/.npm-global/bin:$PATH'
-    fi" >> "$HOME/.profile"
+    echo "export PATH=$HOME/.npm-global/bin:$PATH" | tee -a $HOME/.profile
     source ~/.profile
     npm install npm -g
 fi
@@ -22,7 +20,7 @@ mkdir $HOME/Pictures/icons
 
 wget https://brandslogo.net/wp-content/uploads/2017/03/Google-Calendar-icon.png -O google-calendar.png
 
-mv google-calendar.png $HOME/Pictures/icons/google-calendar.png
+cp google-calendar.png $HOME/.local/share/icons/google-calendar.png
 
 cd ;
 

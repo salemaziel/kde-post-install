@@ -4,13 +4,11 @@ if [[ -z $(which node) ]]; then
     echo " ** Installing NodeJS 10 and npm node package manager ** "
     cd ;
     mkdir ~/.npm-global
-    curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
+    curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
     sudo apt update
     sudo apt -y install nodejs
     npm config set prefix "$HOME/.npm-global"
-    echo "if [[ -d '$HOME/.npm-global/bin' ]] ; then
-        PATH='$HOME/.npm-global/bin:$PATH'
-    fi" >> "$HOME/.profile"
+    echo "export PATH=$HOME/.npm-global/bin:$PATH" | tee -a $HOME/.profile
     source ~/.profile
     npm install -g npm
 fi
