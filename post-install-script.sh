@@ -17,6 +17,7 @@ echo_debug()  { echo -e "${ANSI_VIO}${@}${ANSI_RST}"; }
 echo_fail()   { echo -e "${ANSI_RED}${@}${ANSI_RST}"; }
 
 
+
 install_etcher() {
 echo_info " *********** Installing Etcher: Live USB creator ******** "
 echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/etcher.list
@@ -187,6 +188,7 @@ sudo -v
 sudo apt update 
 sudo apt install -y google-cloud-sdk
 }
+
 
 install_node() {
 echo_info " ** Installing NodeJS 12 and npm node package manager, along with gatsby, surge, and nativefier ** "
@@ -370,6 +372,7 @@ gitonions_scriptsntools() {
     . torsocks on
     git clone https://github.com/salemaziel/scripts-n-tools
 }
+
 
 
 
