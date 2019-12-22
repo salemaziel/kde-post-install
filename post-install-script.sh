@@ -410,31 +410,7 @@ os_options=(1 "Ubuntu: Gnome" off
          6 "GalliumOS: KDE" off)
 os_choices=$("${command[@]}" "${os_options[@]}" 2>&1 >/dev/tty)
 clear
-for os_choice in $os_choices
-    do
-    case $os_choice in
-        1)
-            gnome_install
-            ;;
-        2)
-            kubuntu_install
-            ;;
-        3)
-            lubuntu_install
-            ;;
-        4)
-            xubuntu_install
-            ;;
-        5)
-            echo_note "Gallium XFCE not finished. Run again and pick something else"
-            exit 1
-            ;;
-        6)
-            echo_note "Gallium KDE not finished. Run again and pick something else"
-            exit 1
-            ;;
-    esac
-done
+
 
 cmd=(dialog --separate-output --checklist "Select Extra Apps To Install. Default is to Install All. Navigate with Up/Down Arrows. Select/Unselect with Spacebar. Hit Enter key When Finished To Continue. ESC key/Cancel exits and continues without installing any options" 22 176 16)
 options=(1 "Etcher: Live USB creator" on
