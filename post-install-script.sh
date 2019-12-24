@@ -371,6 +371,15 @@ gitonions_scriptsntools() {
     git clone https://github.com/salemaziel/scripts-n-tools
 }
 
+salems_kconfs() {
+    mkdir -p $HOME/.config/latte
+    cp conf/Default.layout.latte $HOME/.config/latte/Default.layout.latte
+    mkdir -p $HOME/.config/autostart
+    cp conf/Flameshot.desktop $HOME/.config/autostart/Flameshot.desktop
+    cp conf/org.kde.latte-dock.desktop $HOME/.config/autostart/org.kde.latte-dock.desktop
+    cp -r icons/* $HOME/.local/share/icons/
+    git_scriptsntools
+}
 
 
 
@@ -638,13 +647,7 @@ case $answer_restart in
 esac
 
 
-mkdir -p $HOME/.config/latte
-cp conf/Default.layout.latte $HOME/.config/latte/Default.layout.latte
 
-mkdir -p $HOME/.config/autostart
-cp conf/Flameshot.desktop $HOME/.config/autostart/Flameshot.desktop
-cp conf/org.kde.latte-dock.desktop $HOME/.config/autostart/org.kde.latte-dock.desktop
-cp -r icons/* $HOME/.local/share/icons/
 
 ## Git packages to install
 
