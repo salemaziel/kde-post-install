@@ -1,0 +1,62 @@
+#!/bin/bash
+
+echo " ************************************************ "
+echo "                                                  "
+echo "     Removing old docker versions, containerd,    "
+echo "     runc                                         "
+echo "                                                  "
+echo " ************************************************ "
+sleep 1
+
+sudo apt remove docker docker-engine docker.io containerd runc -y
+sudo apt update && sudo apt -y full-upgrade
+
+
+echo " ************************************************ "
+echo "                                                  "
+echo "     Installing gpg key, dependencies, adding     "
+echo "     docker repo to apt, installing docker        "
+echo "                                                  "
+echo " ************************************************ "
+sleep 1
+
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo DEBIAN_FRONTEND=noninteractive add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
+
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io -y
+
+
+echo " ************************************************ "
+echo "                                                  "
+echo "   Testing new docker install with hello-world    "
+echo "   docker image                                   "
+echo "                                                  "
+echo " ************************************************ "
+sleep 2
+
+sudo docker run hello-world
+sleep 2
+
+sudo docker rmi hello-world
+
+read -p "Do you want to run docker using sudo or as regular user? (WARNING: Running as regular user is a security risk! )? [user|u/sudo|s] " "docker_user"
+case $docker_user in
+	user) sudo groupadd docker \
+                sudo usermod -aG $USER \
+                echo -e "Finished! Please reboot for docker group user permissions to take effect" \
+                exit 0;;
+	u) sudo groupadd docker \
+                sudo usermod -aG $USER \
+                echo -e "Finished! Please reboot for docker group user permissions to take effect" \
+                exit 0;;
+	sudo) echo -e "Finished! Run sudo docker --help to see list of commands" \
+	      exit 0;;
+	s) echo -e "Finished! Run sudo docker --help to see list of commands" \
+              exit 0;;
+esac
+
+
+
+

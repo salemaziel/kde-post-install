@@ -130,9 +130,9 @@ sudo gdebi -n slack-desktop*.deb
 install_vbox() {
 echo_info " *** installing virtualbox *** "
 cd ~/Documents/Zips ;
-wget https://download.virtualbox.org/virtualbox/6.0.8/virtualbox-6.0_6.0.8-130520~Ubuntu~bionic_amd64.deb
-wget https://download.virtualbox.org/virtualbox/6.0.8/Oracle_VM_VirtualBox_Extension_Pack-6.0.8.vbox-extpack
-sudo gdebi -n virtualbox-6.0_6.0.14-133895~Ubuntu~bionic_amd64.deb
+wget https://download.virtualbox.org/virtualbox/6.1.0/virtualbox-6.1_6.1.0-135406~Ubuntu~bionic_amd64.deb
+wget https://download.virtualbox.org/virtualbox/6.1.0/Oracle_VM_VirtualBox_Extension_Pack-6.1.0.vbox-extpack
+sudo gdebi -n virtualbox-6.1_6.1.0-135406~Ubuntu~bionic_amd64.deb
 }
 
 install_vivaldi() {
@@ -257,6 +257,28 @@ install_vscode() {
     sudo apt install -y code
 }
 
+
+install_dockerce() {
+    echo_info "Installing Docker-CE"
+    sudo apt remove docker docker-engine docker.io containerd runc -y
+    sudo apt update && sudo apt -y full-upgrade
+    sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo DEBIAN_FRONTEND=noninteractive add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
+    sudo apt update
+    sudo apt install docker-ce docker-ce-cli containerd.io -y
+}
+
+install_dockercompose() {
+    if [[ -z $(which docker) ]]; then
+        echo "Need To install Docker first "
+        install_dockerce
+    fi
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose 
+    sudo chmod +x /usr/local/bin/docker-compose 
+    sudo docker-compose --version 
+}
+
 gnome_install() {
     sudo apt update
     sudo -v
@@ -336,7 +358,7 @@ galliumoskde_install() {
     echo "gallium oskde"
 }
 
-############################# make folders ####################
+#################################################
 make_folders() {
     cd ;
     mkdir -p $HOME/Documents/Zips
@@ -464,7 +486,9 @@ options=(1 "Etcher: Live USB creator" on
          27 "Standard Notes: Encrypted Device-Syncing Notes" on
          28 "Discord: Voice & Text Chat" on
          29 "Mozilla Thunderbird: Email Client" on
-         30 "Visual Studio Code: Advanced Text Editor" on)
+         30 "Visual Studio Code: Advanced Text Editor" on
+         31 "Docker: Run Apps in Isolated Containers" on
+         32 "Docker-Compose: Simplified Docker Container configuration" on)
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
 
@@ -596,9 +620,17 @@ do
         28)
             install_discord
             ;;
-        29) sudo apt install -y thunderbird
+        29)
+            sudo apt install -y thunderbird
             ;;
-        30) sudo apt install -y code
+        30)
+            sudo apt install -y code
+            ;;
+        31)
+            install_dockerce
+            ;;
+        32)
+            install_dockercompose
             ;;
     esac
 done
@@ -617,11 +649,12 @@ echo "if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte.sh
 fi" >> $HOME/.bashrc
 
-echo_info "Removing some unnecessary some things"
+echo_info "Removing some unnecessary things"
 sudo DEBIAN_FRONTEND=noninteractive apt purge exim4 exim4-daemon-light exim4-config exim4-base mpd postfix apache2 apache2-bin libapache2-mod-php libapache2-mod-php7.* libaprutil1-dbd-sqlite3 -y
 
 sudo modprobe -rv mei_hdcp
-sudo modprobe -rv mei_*
+sudo modprobe -rv mei_me
+sudo modprobe -rv mei_mii
 echo "blacklist mei" | sudo tee -a /etc/modprobe.d/blacklist.conf
 echo "blacklist mei_me" | sudo tee -a /etc/modprobe.d/blacklist.conf
 echo "blacklist mei_hdcp" | sudo tee -a /etc/modprobe.d/blacklist.conf

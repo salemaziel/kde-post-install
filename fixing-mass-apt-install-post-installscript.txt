@@ -12,7 +12,6 @@ sudo nano /etc/modprobe.d/blacklist.conf
 
 
 #kde specific:
-# plasma-widgets-addons kubuntu-restricted-extras kaccounts-integration kio-gdrive qml-module-org-kde-kaccounts libkf5config-dev libkdecorations2-dev libqt5x11extras5-dev qtdeclarative5-dev libkf5guiaddons-dev libkf5configwidgets-dev libkf5windowsystem-dev libkf5coreaddons-dev libqtwebkit-qmlwebkitplugin libqt5webview5 qml qml-module-org-kde-charts qml-module-org-kde-okular qml-module-qtgstreamer qml-module-qtquick-extras qml-module-qtquick-shapes dolphin-plugins ksystemlog kdialog
 
 
 
