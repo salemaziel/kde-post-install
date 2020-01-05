@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+echo -e "NOT DONE YET"
+echo -e "Sorry.
+exit 0
+
 
 if [ "$(whoami)" != 'root' ]; then
     echo $"Please run with sudo"

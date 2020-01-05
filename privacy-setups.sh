@@ -113,12 +113,12 @@ dl_gits() {
     git clone https://github.com/angristan/openvpn-install
     git clone https://github.com/l-n-s/wireguard-install
     git clone https://github.com/txthinking/brook.git
+    mv brook brook-vpn-client
     git clone https://github.com/HirbodBehnam/MTProtoProxyInstaller
     git clone https://github.com/BrainfuckSec/kalitorify
     git clone https://github.com/mirimir/vpnchains
     git clone https://github.com/TensorTom/VPN-Chain
     git clone https://github.com/unresolvedsymbol/VPN-Chain
-    
 }
 
 

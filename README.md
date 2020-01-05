@@ -1,11 +1,12 @@
 # kde-post-install
-Post install script first made for KDE, now works for any Ubuntu
+Post install script originally made for KDE, now should work for any Ubuntu
 
-## Instructions So It Will Work:
-Run the following commands first BEFORE running post-install-script.sh, which is the main script with options to download shit. 
+## Instructions:
+Congrats on your new Ubuntu Install.
+Run the following commands to get started downloading and installing shit:
 
 1.
-sudo apt install dialog -y
+cd kde-post-install
 
 2.
 chmod +x post-install-script.sh
@@ -14,14 +15,18 @@ chmod +x post-install-script.sh
 ./post-install-script.sh
 
 
-If only downloading one app from single install-*.sh scripts, enter:
+## If only downloading one app from single install-*.sh scripts, enter:
 
 1.
+cd kde-post-install/Single-App-Installs
+
+2.
 chmod +x install-APPNAME.sh
 
 2.
 ./install-APPNAME.sh
 
 
-and follow any instructions, obviously switching out APPNAME for the app you want to download
+and follow any instructions, obviously switching out APPNAME for the app you want to download.
 
+Please let me know if something doesnt work for you.
