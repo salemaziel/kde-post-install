@@ -358,7 +358,6 @@ galliumoskde_install() {
     echo "gallium oskde"
 }
 
-#################################################
 make_folders() {
     cd ;
     mkdir -p $HOME/Documents/Zips
@@ -374,6 +373,7 @@ git_scriptsntools() {
     cd ;
     git clone https://github.com/salemaziel/scripts-n-tools
 }
+
 gitonions_scriptsntools() {
     if [[ -z $(which git) ]]; then
         read -p "Run update? [y/n]" apt_upt
@@ -395,6 +395,29 @@ gitonions_scriptsntools() {
     git clone https://github.com/salemaziel/scripts-n-tools
 }
 
+fix_tilix() {
+echo_info "Fixing some things"
+#Fixing Tilix
+sudo ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
+echo "if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi" >> $HOME/.bashrc
+}
+
+remove_crap() {
+echo_info "Removing some unnecessary things"
+sudo DEBIAN_FRONTEND=noninteractive apt purge exim4 exim4-daemon-light exim4-config exim4-base mpd postfix apache2 apache2-bin libapache2-mod-php libapache2-mod-php7.* libaprutil1-dbd-sqlite3 cups cups-browsed avahi-daemon -y
+}
+
+blacklist_me() {
+sudo modprobe -rv mei_hdcp
+sudo modprobe -rv mei_me
+sudo modprobe -rv mei_mii
+echo "blacklist mei" | sudo tee -a /etc/modprobe.d/blacklist.conf
+echo "blacklist mei_me" | sudo tee -a /etc/modprobe.d/blacklist.conf
+echo "blacklist mei_hdcp" | sudo tee -a /etc/modprobe.d/blacklist.conf
+}
+
 salems_kconfs() {
     mkdir -p $HOME/.config/latte
     cp conf/Default.layout.latte $HOME/.config/latte/Default.layout.latte
@@ -403,10 +426,75 @@ salems_kconfs() {
     cp conf/org.kde.latte-dock.desktop $HOME/.config/autostart/org.kde.latte-dock.desktop
     cp -r icons/* $HOME/.local/share/icons/
     git_scriptsntools
+    remove_crap
+}
+
+apparmor_grub() {
+echo_info " ** Hardening (K)Ubuntu security a bit with Apparmor ** "
+sudo mkdir -p /etc/default/grub.d
+echo 'GRUB_CMDLINE_LINUX_DEFAULT="$GRUB_CMDLINE_LINUX_DEFAULT apparmor=1 security=apparmor"'  | sudo tee /etc/default/grub.d/apparmor.cfg
+sudo update-grub
+if [[ -z $(which firejail) ]]; then
+    sudo aa-enforce firejail-default
+fi
+}
+
+usropt_security() {
+    sudo useradd -b -d /opt -s /usr/sbin/nologin -r -U optuser
+    sudo chown -R optuser:optuser /opt
+    sudo useradd -b -d /usr/local/bin -s /usr/sbin/nologin -r -U usrlocbin
+    sudo chown -R usrlocbin:usrlocbin /usr/local/bin
+    sudo usermod -aG optuser,usrlocbin $USER
 }
 
 
+basic_security() {
+    apparmor_grub
+    usropt_security
+}
 
+install_salems() {
+            kubuntu_install
+            make_folders
+            install_etcher
+            install_youtubedl
+            install_nixnote
+            install_inxi
+            install_protonvpn
+            install_signal
+            install_spotify
+            install_caprine
+            install_teamviewer
+            install_tor
+            install_micahs
+            install_chrome
+            install_slack
+            install_vbox
+            install_vivaldi
+            install_zoom
+            install_brave
+            install_gcpsdk
+            install_node
+            install_gatsbycli
+            install_surge
+            install_nativefier
+            install_yarn
+            install_firejail
+            install_stdnotes
+            sudo apt install -y thunderbird
+            install_vscode
+            install_dockerce
+            install_dockercompose
+            basic_security
+            salems_kconfs
+            fix_tilix
+            blacklist_me
+            echo_note "All Done."
+            echo_note "Rebooting system in 30 seconds"
+            sleep 30
+}
+
+############################## Script starts ###########################################
 
 echo_prompt '
    _____         __                _      
@@ -445,13 +533,43 @@ sleep 3
 
 sudo apt-get install --install-recommends dialog -y
 
+
+
+read -p "Are you Salem? [y/n]" ru_salem
+case $ru_salem in
+    Y) 
+        echo_warn "No you're not. Nice try. Skipping."
+            ;;
+    y)
+        echo_warn "No you're not. Nice try. Skipping."
+            ;;
+    N) 
+        echo_note "Atleast you're honest. Continuing"
+            ;;
+    n) 
+        echo_note "Atleast you're honest. Continuing"
+            ;;
+    "la neta") 
+        echo_note "Whats good Salem"
+        sleep 2
+        install_salems
+        reboot
+            ;;
+    *)
+        echo_info "Lol. That wasnt an answer, bro. Continuing"
+            ;;
+esac
+
+
+
 command=(dialog --radiolist "Select Your Ubuntu Flavor" 22 76 16)
 os_options=(1 "Ubuntu: Gnome" off
          2 "Kubuntu: KDE" on
          3 "Lubuntu: LXDM" off
          4 "Xubuntu: XFCE" off
          5 "GalliumOS: XFCE" off
-         6 "GalliumOS: KDE" off)
+         6 "GalliumOS: KDE" off
+         7 "Skip this, continue to App List for Installing" off)
 os_choices=$("${command[@]}" "${os_options[@]}" 2>&1 >/dev/tty)
 clear
 
@@ -522,6 +640,10 @@ for os_choice in $os_choices
         6)
             echo_note "Gallium KDE not finished. Run again and pick something else"
             exit 1
+            ;;
+        7) 
+            echo_note "Skipping Distro-specific installs"
+            sleep 2
             ;;
     esac
 done
@@ -624,7 +746,7 @@ do
             sudo apt install -y thunderbird
             ;;
         30)
-            sudo apt install -y code
+            install_vscode
             ;;
         31)
             install_dockerce
@@ -642,33 +764,9 @@ sudo DEBIAN_FRONTEND=noninteractive apt full-upgrade -y
 
 
 
-echo_info "Fixing some things"
-#Fixing Tilix
-sudo ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
-echo "if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-        source /etc/profile.d/vte.sh
-fi" >> $HOME/.bashrc
+fix_tilix
 
-echo_info "Removing some unnecessary things"
-sudo DEBIAN_FRONTEND=noninteractive apt purge exim4 exim4-daemon-light exim4-config exim4-base mpd postfix apache2 apache2-bin libapache2-mod-php libapache2-mod-php7.* libaprutil1-dbd-sqlite3 -y
-
-sudo modprobe -rv mei_hdcp
-sudo modprobe -rv mei_me
-sudo modprobe -rv mei_mii
-echo "blacklist mei" | sudo tee -a /etc/modprobe.d/blacklist.conf
-echo "blacklist mei_me" | sudo tee -a /etc/modprobe.d/blacklist.conf
-echo "blacklist mei_hdcp" | sudo tee -a /etc/modprobe.d/blacklist.conf
-
-
-
-echo_info " ** Hardening (K)Ubuntu security a bit with Apparmor ** "
-sudo mkdir -p /etc/default/grub.d
-echo 'GRUB_CMDLINE_LINUX_DEFAULT="$GRUB_CMDLINE_LINUX_DEFAULT apparmor=1 security=apparmor"'  | sudo tee /etc/default/grub.d/apparmor.cfg
-sudo update-grub
-sudo aa-enforce firejail-default
-
-
-git_scriptsntools
+basic_security
 
 
 
@@ -684,7 +782,7 @@ esac
 
 
 
-
+exit 0
 ## Git packages to install
 
 # git clone https://github.com/CISOfy/Lynis
@@ -727,5 +825,5 @@ esac
 
 
 
-exit 0
+
 
