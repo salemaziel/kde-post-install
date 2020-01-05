@@ -279,6 +279,12 @@ install_dockercompose() {
     sudo docker-compose --version 
 }
 
+install_syncthing() {
+curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
+echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
+sudo apt-get update && sudo apt install syncthing
+}
+
 gnome_install() {
     sudo apt update
     sudo -v
@@ -606,7 +612,8 @@ options=(1 "Etcher: Live USB creator" on
          29 "Mozilla Thunderbird: Email Client" on
          30 "Visual Studio Code: Advanced Text Editor" on
          31 "Docker: Run Apps in Isolated Containers" on
-         32 "Docker-Compose: Simplified Docker Container configuration" on)
+         32 "Docker-Compose: Simplified Docker Container configuration" on
+         33 "Install Syncthing: Sync files across ypur devices" on)
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
 
@@ -753,6 +760,9 @@ do
             ;;
         32)
             install_dockercompose
+            ;;
+        33)
+            install_syncthing
             ;;
     esac
 done
