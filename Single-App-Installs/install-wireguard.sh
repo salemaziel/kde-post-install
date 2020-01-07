@@ -1,7 +1,24 @@
 #!/bin/bash
 
-echo -e "If you're on a version of Ubuntu lower than 19.10, this will fail"
-sleep 1
+if [[ -z $(ls /etc/os-release) ]]; then
+    echo -e "Sorry, this only works on Ubuntu"
+    sleep 1
+    exit 0
+fi
+
+
+source /etc/os-release
+UB_VERSION=$(echo VERSION | awk '{ print $1 }' )
+
+case $UB_VERSION in
+    '19.10')
+            echo -e "Installing Wireguard"
+                ;;
+           *) 
+            echo -e "Installing Wireguard PPA"
+            sudo add-apt-repository ppa:wireguard/wireguard
+                ;;
+esac
 
 sudo apt update
 
@@ -9,7 +26,7 @@ if [[ -z $(which dialog) ]]; then
     sudo apt install -y dialog
 fi
 if [[ -z $(which wireguard) ]]; then
-    sudo apt install -y wireguard openresolv
+    sudo apt install -y wireguard 
 fi
 
 WG_CONF=$(dialog --stdout --title "Please choose a file" --fselect $HOME/ 22 76 16)
