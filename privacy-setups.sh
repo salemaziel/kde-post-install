@@ -124,7 +124,6 @@ dl_gits() {
     git clone https://github.com/unresolvedsymbol/VPN-Chain
 }
 
-####################################
 show_menu1() {
 command1=(dialog --separate-output --checklist "What do you want to do?" 22 76 16)
 options1=(1 "Start Torsocks (tor shell service) and re-show this menu (for downloading thru Tor purposes)" off
@@ -201,6 +200,38 @@ touch $PWD/.ran-menu2-true
 echo "Usage file declaring menu2 was run. Should be auto-deleted, it is safe to delete if it was not" >> $PWD/.ran-menu2-true
 }
 
+########################### Start of script ###############
+if [[ -z $(which dialog) ]]; then
+    echo -e "Sorry, dialog is not installed on this machine. Download dialog first, or run these scripts manually if you need to be quiet"
+    sleep 2
+    read -p "Download dialog? [y/n] " dl_dialog
+    case $dl_dialog in
+        Y)
+            echo -e "Downloading. Run this script again after its done"
+            sleep 1
+            sudo apt update && sudo apt install -y dialog
+            exit 0
+                ;;
+        y)
+            echo -e "Downloading. Run this script again after its done"
+            sleep 1
+            sudo apt update && sudo apt install -y dialog
+            exit 0
+                ;;
+        N)
+            echo -e "Ok. Run these scripts manually"
+            sleep 1
+            cat $PWD/privacy-setups.sh
+            exit 0
+                ;;
+        n)
+            echo -e "Ok. Run these scripts manually"
+            sleep 1
+            cat $PWD/privacy-setups.sh
+            exit 0
+                ;;
+    esac
+fi
 
 show_menu1
 
@@ -210,5 +241,3 @@ else
     rm -f .ran-menu2-true
     exit 0
 fi
-
-
