@@ -105,6 +105,8 @@ dl_gits() {
      if [[ -z $(which git) ]]; then
         sudo apt install git -y
     fi
+    mkdir vpn-stuff
+    cd vpn-stuff
     git clone https://github.com/trailofbits/algo.git
     mv algo algo-autovpn-installer
     git clone https://github.com/cbeuw/Cloak.git
@@ -118,10 +120,11 @@ dl_gits() {
     git clone https://github.com/BrainfuckSec/kalitorify
     git clone https://github.com/mirimir/vpnchains
     git clone https://github.com/TensorTom/VPN-Chain
+    mv VPN-Chain TensorTom-VPN-Chain
     git clone https://github.com/unresolvedsymbol/VPN-Chain
 }
 
-
+####################################
 show_menu1() {
 command1=(dialog --separate-output --checklist "What do you want to do?" 22 76 16)
 options1=(1 "Start Torsocks (tor shell service) and re-show this menu (for downloading thru Tor purposes)" off
@@ -171,6 +174,7 @@ options2=(1 "Start Torsocks (tor shell service)" off
          5 "Download TailsOS: Amnesiatic Operating System" off)
 choices2=$("${command2[@]}" "${options2[@]}" 2>&1 >/dev/tty)
 clear
+}
 
 run_menu2() {
 for choice2 in $choices2
@@ -199,6 +203,7 @@ echo "Usage file declaring menu2 was run. Should be auto-deleted, it is safe to 
 
 
 show_menu1
+
 if [[ -z $(ls | grep ".ran-menu2-true") ]]; then
     run_menu1
 else
@@ -207,4 +212,3 @@ else
 fi
 
 
-exit 0
