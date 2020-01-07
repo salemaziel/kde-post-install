@@ -285,6 +285,23 @@ echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sourc
 sudo apt-get update && sudo apt install syncthing
 }
 
+install_postman() {
+    wget https://dl.pstmn.io/download/latest/linux64 -O postman-linux-x64.tar.gz
+sudo tar -xvzf postman-linux-x64.tar.gz -C /opt
+sudo ln -s /opt/Postman/Postman /usr/local/bin/postman
+echo "[Desktop Entry]
+Name=Postman
+GenericName=API Client
+X-GNOME-FullName=Postman API Client
+Comment=Make and view REST API calls and responses
+Keywords=api;
+Exec=/opt/Postman/Postman
+Terminal=false
+Type=Application
+Icon=/opt/Postman/app/resources/app/assets/icon.png
+Categories=Development;Utilities;" >> $HOME/.local/share/applications/postman.desktop
+}
+
 gnome_install() {
     sudo apt update
     sudo -v
@@ -491,6 +508,7 @@ install_salems() {
             install_vscode
             install_dockerce
             install_dockercompose
+            install_postman
             basic_security
             salems_kconfs
             fix_tilix
@@ -613,7 +631,8 @@ options=(1 "Etcher: Live USB creator" on
          30 "Visual Studio Code: Advanced Text Editor" on
          31 "Docker: Run Apps in Isolated Containers" on
          32 "Docker-Compose: Simplified Docker Container configuration" on
-         33 "Install Syncthing: Sync files across ypur devices" on)
+         33 "Syncthing: Sync files across ypur devices" on
+         34 "Postman: API Testing" on)
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
 
