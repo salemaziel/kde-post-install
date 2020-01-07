@@ -1,4 +1,5 @@
 #!/bin/bash
+echo " ******* installing Syncthing ********** "
 
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
 
