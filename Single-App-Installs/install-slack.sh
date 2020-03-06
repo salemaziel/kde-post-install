@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo -e " *** installing slack *** "
 cd $HOME/Downloads ;

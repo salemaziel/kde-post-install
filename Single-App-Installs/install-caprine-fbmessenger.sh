@@ -13,3 +13,5 @@ curl -s https://api.github.com/repos/sindresorhus/caprine/releases/latest \
 | tail -1 | wget -O caprine.deb -qi -
 
 sudo gdebi -n caprine.deb
+
+rm -rf caprine.deb

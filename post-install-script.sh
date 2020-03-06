@@ -78,7 +78,7 @@ sudo apt install spotify-client -y
 
 install_caprine() {
 echo_info " *** Installing Caprine:FB messenger for Linux *** "
-cd ~/Documents/Zips
+cd ~/Downloads
 curl -s https://api.github.com/repos/sindresorhus/caprine/releases/latest \
 | grep "browser_download_url.*deb" \
 | cut -d : -f 2,3 \
@@ -89,7 +89,7 @@ sudo gdebi -n caprine.deb
 
 install_teamviewer() {
     echo_info " *** installing Teamviewer for Linux *** "
-    cd ~/Documents/Zips
+    cd ~/Downloads
     wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
     sudo gdebi -n teamviewer_amd64.deb
 }
@@ -114,14 +114,14 @@ sudo apt install -y onionshare torbrowser-launcher
 
 install_chrome() {
 echo_info " *** Installing Google Chrome *** "
-cd ~/Documents/Zips ;
+cd ~/Downloads ;
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo gdebi -n google-chrome-stable*.deb
 }
 
 install_slack() {
 echo_info " *** installing slack *** "
-cd ~/Documents/Zips ;
+cd ~/Downloads ;
 wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.2.0-amd64.deb
 sudo gdebi -n slack-desktop*.deb
 }
@@ -129,22 +129,22 @@ sudo gdebi -n slack-desktop*.deb
 
 install_vbox() {
 echo_info " *** installing virtualbox *** "
-cd ~/Documents/Zips ;
-wget https://download.virtualbox.org/virtualbox/6.1.0/virtualbox-6.1_6.1.0-135406~Ubuntu~bionic_amd64.deb
-wget https://download.virtualbox.org/virtualbox/6.1.0/Oracle_VM_VirtualBox_Extension_Pack-6.1.0.vbox-extpack
-sudo gdebi -n virtualbox-6.1_6.1.0-135406~Ubuntu~bionic_amd64.deb
+cd ~/Downloads ;
+wget https://download.virtualbox.org/virtualbox/6.1.2/virtualbox-6.1_6.1.2-135662~Ubuntu~bionic_amd64.deb
+wget https://download.virtualbox.org/virtualbox/6.1.2/Oracle_VM_VirtualBox_Extension_Pack-6.1.2.vbox-extpack
+sudo gdebi -n virtualbox-6.1_6.1.2-135662~Ubuntu~bionic_amd64.deb
 }
 
 install_vivaldi() {
 echo_info " *** Installing Vivaldi Browser *** "
-cd ~/Documents/Zips ;
+cd ~/Downloads ;
 wget https://downloads.vivaldi.com/stable/vivaldi-stable_2.9.1705.41-1_amd64.deb
 sudo gdebi -n vivaldi-stable*.deb
 }
 
 install_zoom() {
 echo_info " *** Installing Zoom *** "
-cd ~/Documents/Zips ;
+cd ~/Downloads ;
 wget https://zoom.us/client/latest/zoom_amd64.deb
 sudo gdebi -n zoom_amd64.deb
 }
@@ -167,7 +167,7 @@ sudo gdebi -n skypeforlinux-64.deb
 install_basecamp() {
 echo_info " *** downloading and installing Basecamp: Unofficial app for Linux *** "
 wget https://github.com/arturock/basecamp-linux/releases/download/v0.1.2/basecamp-0.1.2-linux-x64.tar.xz
-cd ~/Documents/Zips
+cd ~/Downloads
 tar -xzvf basecamp-linux-x64.tar.xz
 sudo mv basecamp-linux-x64 /opt/basecamp-linux-x64
 sudo chown -R root:root /opt/basecamp-linux-x64
@@ -225,14 +225,14 @@ install_yarn() {
 
 install_firejail() {
 echo_info "Installing Firejail: Linux SUID Sandbox"
-cd ~/Documents/Zips ;
+cd ~/Downloads ;
 wget https://sourceforge.net/projects/firejail/files/LTS/firejail-apparmor_0.9.56.2-LTS_1_amd64.deb
 sudo gdebi -n firejail-apparmor_0.9.56.2-LTS_1_amd64.deb
 }
 
 install_stdnotes() {
 echo_info "Installing Standard Notes: Encrypted Notebook. Answer Yes if asked about Integrating to Desktop"
-cd ~/Documents/Zips ;
+cd ~/Downloads ;
 wget https://github.com/standardnotes/desktop/releases/download/v3.0.23/Standard-Notes-3.0.23.AppImage
 mkdir -p $HOME/.local/bin
 cp -r Standard-Notes-3.0.23.AppImage $HOME/.local/bin/Standard-Notes-3.0.23.AppImage
@@ -243,7 +243,7 @@ chmod a+x Standard-Notes-3.0.23.AppImage
 
 install_discord() {
 echo_info "Installing Discord: Voice & Text Chat"
-cd $HOME/Documents/Zips ;
+cd $HOME/Downloads ;
 wget https://dl.discordapp.net/apps/linux/0.0.9/discord-0.0.9.deb
 sudo gdebi -n discord-0.0.9.deb
 }
@@ -383,7 +383,6 @@ galliumoskde_install() {
 
 make_folders() {
     cd ;
-    mkdir -p $HOME/Documents/Zips
     mkdir -p $HOME/my-sites
     mkdir -p $HOME/testing-code
 }
@@ -562,23 +561,37 @@ sudo apt-get install --install-recommends dialog -y
 read -p "Are you Salem? [y/n]" ru_salem
 case $ru_salem in
     Y) 
-        echo_warn "No you're not. Nice try. Skipping."
+        echo_warn "No mames guey, no you're not. Nice try. Skipping."
+        sleep 3
+        echo_info "..on your bitch ass.."
             ;;
     y)
-        echo_warn "No you're not. Nice try. Skipping."
+        echo_warn "No mames guey, no you're not. Nice try. Skipping."
+        sleep 3
+        echo_info "..on your bitch ass.."
             ;;
     N) 
         echo_note "Atleast you're honest. Continuing"
+        sleep 3
             ;;
     n) 
         echo_note "Atleast you're honest. Continuing"
+        sleep 3
             ;;
     "la neta") 
         echo_note "Whats good Salem"
-        sleep 2
-        install_salems
-        reboot
-            ;;
+        read -p "The usual? [y/n]  " USUAL_APPS
+        case $USUAL_APPS in
+            y)
+                echo_note "Fasho. Auto-install starting"
+                sleep 2
+                install_salems
+                reboot
+                ;;
+            n)
+                echo_note "Fasho. Starting regular install process"
+                sleep 2
+                ;;
     *)
         echo_info "Lol. That wasnt an answer, bro. Continuing"
             ;;

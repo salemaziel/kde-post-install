@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Written by: Keefer Rourke <https://krourke.org>
 # Based on AUR package <https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=ttf-google-fonts-git>

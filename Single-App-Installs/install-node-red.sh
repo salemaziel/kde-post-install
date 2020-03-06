@@ -29,7 +29,7 @@ sudo useradd -m -d /opt/node-red -s /bin/bash -r -U node-red
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt install gcc g++ make nodejs certbot -y
 
-
+bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
 
 sudo -u node-red mkdir /opt/node-red/.npm-nodered
 sudo -u node-red npm config set prefix /opt/node-red/.npm-nodered

@@ -1,0 +1,22 @@
+dpkg --get-selections > ~/Package.list
+sudo cp -R /etc/apt/sources.list* ~/
+sudo apt-key exportall > ~/Repo.keys
+
+
+* You may have to update dpkg's list of available packages or it will just ignore your selections (see this debian bug for more info). You should do this before sudo dpkg --set-selections < ~/Package.list, like this:
+
+apt-cache dumpavail > ~/temp_avail
+sudo dpkg --merge-avail ~/temp_avail
+rm ~/temp_avail
+
+
+
+after reinstall:
+
+sudo apt-key add ~/Repo.keys
+sudo cp -R ~/sources.list* /etc/apt/
+sudo apt-get update
+sudo apt-get install dselect
+sudo dselect update
+sudo dpkg --set-selections < ~/Package.list
+sudo apt-get dselect-upgrade -y
