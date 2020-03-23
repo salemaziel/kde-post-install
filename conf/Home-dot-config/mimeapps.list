@@ -1,0 +1,19 @@
+[Added Associations]
+image/jpeg=org.kde.gwenview.desktop;inkscape.desktop;org.kde.kolourpaint.desktop;eog.desktop;mtpaint.desktop;firefox.desktop;okularApplication_kimgio.desktop;display-im6.q16.desktop;gimp.desktop;
+image/png=org.kde.gwenview.desktop;inkscape.desktop;org.kde.kolourpaint.desktop;appimagekit_2468051b08e1e3a8ce69d1ea3abf05ce-Gravit_Designer.desktop;eog.desktop;mtpaint.desktop;firefox.desktop;okularApplication_kimgio.desktop;display-im6.q16.desktop;gimp.desktop;stegosuite.desktop;darktable.desktop;krita_png.desktop;
+image/svg+xml=inkscape.desktop;org.kde.kolourpaint.desktop;eog.desktop;gimp.desktop;org.kde.kate.desktop;org.kde.kwrite.desktop;libreoffice-writer.desktop;okularApplication_txt.desktop;vivaldi-stable.desktop;firefox.desktop;chromium_chromium.desktop;google-chrome.desktop;brave-browser.desktop;glogg.desktop;code.desktop;mousepad.desktop;
+image/svg+xml-compressed=inkscape.desktop;org.kde.kolourpaint.desktop;eog.desktop;org.kde.ark.desktop;
+inode/directory=org.kde.dolphin.desktop;
+
+[Default Applications]
+image/jpeg=org.kde.gwenview.desktop;
+image/png=org.kde.gwenview.desktop;
+image/svg+xml=inkscape.desktop;
+image/svg+xml-compressed=inkscape.desktop;
+inode/directory=org.kde.dolphin.desktop;
+x-scheme-handler/designer=appimagekit-gravit-designer.desktop
+x-scheme-handler/http=google-chrome.desktop;
+x-scheme-handler/https=google-chrome.desktop;
+x-scheme-handler/postman=Postman.desktop
+x-scheme-handler/sgnl=signal-desktop.desktop
+x-scheme-handler/slack=slack.desktop

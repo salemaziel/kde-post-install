@@ -1,0 +1,78 @@
+{
+	"name": "html-to-jsx",
+	"displayName": "html to JSX",
+	"description": "Converts html code to React JSX",
+	"version": "0.0.1",
+	"publisher": "riazxrazor",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/riazXrazor/html-to-jsx.git"
+	},
+	"icon": "icon/html-to-jsx.png",
+	"engines": {
+		"vscode": "^1.21.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"html",
+		"conversor",
+		"jsx",
+		"react",
+		"converter"
+	],
+	"activationEvents": [
+		"onCommand:extension.convertHTMLtoJSX"
+	],
+	"main": "./out/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.convertHTMLtoJSX",
+				"title": "Convert HTML to JSX"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"when": "editorHasSelection",
+					"command": "extension.convertHTMLtoJSX",
+					"group": "modification"
+				}
+			]
+		},
+		"keybindings": [
+			{
+				"when": "editorHasSelection",
+				"command": "extension.convertHTMLtoJSX",
+				"group": "modification",
+				"key": "ctrl+alt+x"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"@types/htmltojsx": "0.0.29",
+		"@types/mocha": "^2.2.42",
+		"@types/node": "^7.0.43",
+		"tslint": "^5.8.0",
+		"typescript": "^2.6.1",
+		"vscode": "^1.1.6"
+	},
+	"dependencies": {
+		"hoek": "^5.0.3",
+		"htmltojsx": "^0.3.0"
+	},
+	"__metadata": {
+		"id": "cf68f59b-5a20-46b3-98be-3ffc6338d4a3",
+		"publisherId": "d4e4a066-fcfe-4377-9786-211eacb65d27",
+		"publisherDisplayName": "Riaz Laskar"
+	}
+}

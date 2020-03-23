@@ -1,0 +1,151 @@
+{
+	"name": "vscode-front-matter",
+	"displayName": "Front Matter",
+	"description": "Simplifies working with front matter of your articles. Useful extension when you are using a static site generator like: Hugo, Jekyll, Hexo, NextJs, Gatsby, and many more...",
+	"icon": "assets/front-matter.png",
+	"version": "0.0.10",
+	"preview": true,
+	"publisher": "eliostruyf",
+	"galleryBanner": {
+		"color": "#011627",
+		"theme": "dark"
+	},
+	"badges": [
+		{
+			"description": "version",
+			"url": "https://img.shields.io/github/package-json/v/estruyf/vscode-front-matter?color=green&label=vscode-front-matter&style=flat-square",
+			"href": "https://github.com/estruyf/vscode-front-matter"
+		}
+	],
+	"engines": {
+		"vscode": "^1.37.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"Front Matter",
+		"Hugo",
+		"Jekyll",
+		"Gatsby",
+		"Hexo",
+		"Taxonomy"
+	],
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/estruyf/vscode-front-matter"
+	},
+	"activationEvents": [
+		"*",
+		"onCommand:frontMatter.insertTags",
+		"onCommand:frontMatter.insertCategories",
+		"onCommand:frontMatter.createTag",
+		"onCommand:frontMatter.createCategory",
+		"onCommand:frontMatter.exportTaxonomy",
+		"onCommand:frontMatter.remap",
+		"onCommand:frontMatter.setDate",
+		"onCommand:frontMatter.generateSlug"
+	],
+	"main": "./dist/extension",
+	"contributes": {
+		"configuration": {
+			"title": "Front Matter: Configuration",
+			"properties": {
+				"frontMatter.taxonomy.tags": {
+					"type": "array",
+					"description": "Specifies the tags which can be used in the Front Matter"
+				},
+				"frontMatter.taxonomy.categories": {
+					"type": "array",
+					"description": "Specifies the categories which can be used in the Front Matter"
+				},
+				"frontMatter.taxonomy.dateFormat": {
+					"type": "string",
+					"markdownDescription": "Specify the date format for your articles. Check [date-fns formating](https://date-fns.org/v2.0.1/docs/format) for more information."
+				},
+				"frontMatter.taxonomy.slugPrefix": {
+					"type": "string",
+					"markdownDescription": "Specify a prefix for the slug"
+				},
+				"frontMatter.taxonomy.slugSuffix": {
+					"type": "string",
+					"markdownDescription": "Specify a suffix for the slug"
+				},
+				"frontMatter.taxonomy.indentArrays": {
+					"type": "boolean",
+					"default": true,
+					"markdownDescription": "Specify if arrays in front matter are indented. Default: true."
+				},
+				"frontMatter.taxonomy.noPropertyValueQuotes": {
+					"type": "array",
+					"default": [],
+					"markdownDescription": "Specify the properties from which quotes need to be removed."
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "frontMatter.insertTags",
+				"title": "Front Matter: Insert tags"
+			},
+			{
+				"command": "frontMatter.insertCategories",
+				"title": "Front Matter: Insert categories"
+			},
+			{
+				"command": "frontMatter.createTag",
+				"title": "Front Matter: Create tag"
+			},
+			{
+				"command": "frontMatter.createCategory",
+				"title": "Front Matter: Create category"
+			},
+			{
+				"command": "frontMatter.exportTaxonomy",
+				"title": "Front Matter: Export all tags & categories to your settings"
+			},
+			{
+				"command": "frontMatter.remap",
+				"title": "Front Matter: Remap or remove tag/category in all articles"
+			},
+			{
+				"command": "frontMatter.setDate",
+				"title": "Front Matter: Set current date"
+			},
+			{
+				"command": "frontMatter.generateSlug",
+				"title": "Front Matter: Generate slug based on article title"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "webpack --mode production",
+		"webpack": "webpack --mode development",
+		"webpack-dev": "webpack --mode development --watch",
+		"test-compile": "tsc -p ./"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/js-yaml": "3.12.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.37.0",
+		"date-fns": "2.0.1",
+		"glob": "^7.1.4",
+		"gray-matter": "4.0.2",
+		"mocha": "^6.1.4",
+		"ts-loader": "^6.0.4",
+		"tslint": "^5.12.1",
+		"typescript": "^3.3.1",
+		"vscode-test": "^1.0.2",
+		"webpack": "^4.39.2",
+		"webpack-cli": "^3.3.7"
+	},
+	"dependencies": {},
+	"__metadata": {
+		"id": "eadc7c96-e01a-42bd-9967-872e43496d5a",
+		"publisherId": "ce311c06-a2b7-469e-a0dd-319e3a3d9d25",
+		"publisherDisplayName": "Elio Struyf"
+	}
+}

@@ -1,0 +1,102 @@
+{
+	"name": "vscode-autoprefixer",
+	"displayName": "Autoprefixer",
+	"description": "Parse CSS and add vendor prefixes automatically.",
+	"version": "3.0.0",
+	"publisher": "mrmlnc",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.40.0"
+	},
+	"icon": "icon.png",
+	"homepage": "https://github.com/mrmlnc/vscode-autoprefixer/blob/master/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mrmlnc/vscode-autoprefixer"
+	},
+	"keywords": [
+		"autoprefixer",
+		"prefixes",
+		"postcss",
+		"css",
+		"less"
+	],
+	"categories": [
+		"Other",
+		"Formatters"
+	],
+	"activationEvents": [
+		"onCommand:autoprefixer.execute",
+		"onLanguage:css",
+		"onLanguage:postcss",
+		"onLanguage:less",
+		"onLanguage:scss"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "autoprefixer.execute",
+				"category": "Autoprefixer",
+				"title": "Run"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Autoprefixer configuration options",
+			"properties": {
+				"autoprefixer.options": {
+					"type": "object",
+					"default": {},
+					"description": "Any options supported by autoprefixer."
+				},
+				"autoprefixer.findExternalAutoprefixer": {
+					"type": "boolean",
+					"default": false,
+					"description": "Use an external Autoprefixer package instead of built-in version."
+				},
+				"autoprefixer.formatOnSave": {
+					"type": "boolean",
+					"default": false,
+					"description": "Add vendor prefixes to CSS when you save a file."
+				},
+				"autoprefixer.ignoreFiles": {
+					"type": "array",
+					"default": [],
+					"description": "An optional array of glob-patterns to ignore files."
+				}
+			}
+		}
+	},
+	"devDependencies": {
+		"@types/autoprefixer": "^9.6.1",
+		"@types/micromatch": "^4.0.0",
+		"@types/node": "^12.12.24",
+		"@types/vscode": "^1.40.0",
+		"eslint": "^6.8.0",
+		"eslint-config-mrmlnc": "^1.1.0",
+		"rimraf": "^3.0.0",
+		"typescript": "^3.7.4"
+	},
+	"dependencies": {
+		"autoprefixer": "^9.7.3",
+		"micromatch": "^4.0.2",
+		"npm-module-path": "^2.0.2",
+		"postcss": "^7.0.26",
+		"postcss-less": "^3.1.4",
+		"postcss-safe-parser": "^4.0.1",
+		"postcss-scss": "^2.0.0"
+	},
+	"scripts": {
+		"clean": "rimraf out",
+		"lint": "eslint \"src/**/*.ts\" --cache",
+		"compile": "tsc",
+		"build": "npm run clean && npm run compile && npm run lint",
+		"watch": "npm run clean && npm run lint && npm run compile -- --sourceMap --watch"
+	},
+	"__metadata": {
+		"id": "70159dd5-3ca5-4ccc-a7ae-011a662e08c2",
+		"publisherId": "c958976e-9702-4f1a-8bdf-26b7bc012d65",
+		"publisherDisplayName": "mrmlnc"
+	}
+}

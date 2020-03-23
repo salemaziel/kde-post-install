@@ -1,0 +1,1 @@
+function run(__dirname, err => console.error(error));

@@ -1,0 +1,33 @@
+[DownloadDialog Settings]
+Height 2160=1428
+Width 3840=2970
+
+[FileDialogSize]
+Height 2160=480
+Width 3840=704
+
+[KFileDialog Settings]
+listViewIconSize=0
+
+[PlasmaThemeExtended]
+outlineWidth=1
+
+[ScreenConnectors]
+10=eDP-1
+11=default
+
+[UniversalSettings]
+badges3DStyle=false
+canDisableBorders=false
+currentLayout=Default
+downloadWindowSize=800,550
+lastNonAssignedLayout=Default
+launchers=
+layoutsColumnWidths=
+layoutsWindowSize=700,450
+memoryUsage=0
+metaPressAndHoldEnabled=true
+mouseSensitivity=2
+screenTrackerInterval=2500
+showInfoWindow=true
+version=1

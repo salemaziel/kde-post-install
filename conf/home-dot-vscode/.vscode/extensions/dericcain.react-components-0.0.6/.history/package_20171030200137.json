@@ -1,0 +1,82 @@
+{
+    "name": "react-components",
+    "displayName": "React Components",
+    "description": "Easily create React components right from Code",
+    "version": "0.0.1",
+    "publisher": "dericcain",
+    "galleryBanner": {
+        "color": "#eeeeee",
+        "theme": "light"
+    },
+    "engines": {
+        "vscode": "^1.17.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.react-components:create-class-component",
+        "onCommand:extension.react-components:create-functional-component"
+    ],
+    "main": "./src",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.react-components:create-class-component",
+                "title": "React Components: Create class component"
+            },
+            {
+                "command": "extension.react-components:create-functional-component",
+                "title": "React Components: Create functional component"
+            }
+        ],
+        "configuration": {
+            "title": "React Components Configuration",
+            "type": "object",
+            "properties": {
+                "react-components.root": {
+                    "type": "string",
+                    "default": "<root>/src/component",
+                    "description": "Let's you specify where the created components are saved."
+                },
+                "react-components.fileExtension": {
+                    "type": "string",
+                    "enum": [
+                        ".js",
+                        ".jsx"
+                    ],
+                    "default": ".js",
+                    "description": "Let's you specify the file extensions for the created components."
+                },
+                "react-components.openAfterCreate": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Do you want to open the file after it is created?"
+                },
+                "react-components.tests": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Do you want to create a test with each component?"
+                },
+                "react-components.testsRoot": {
+                    "type": "string",
+                    "default": "<root>/tests",
+                    "description": "This is the your tests will be created."
+                }
+            }
+        }
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "jest"
+    },
+    "devDependencies": {
+        "@types/mocha": "^2.2.42",
+        "@types/node": "^7.0.0",
+        "eslint": "^4.6.1",
+        "jest": "^21.2.1",
+        "mocha": "^3.5.0",
+        "typescript": "^2.5.2",
+        "vscode": "^1.1.5"
+    }
+}
