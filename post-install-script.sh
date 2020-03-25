@@ -103,9 +103,11 @@ case $ru_salem in
                 echo_note "Fasho. Starting regular install process"
                 sleep 2
                 ;;
-    *)
-        echo_info "Lol. That wasnt an answer, bro. Continuing"
-            ;;
+        *)
+            echo_info "Lol. That wasnt an answer, bro. Continuing"
+                ;;
+    esac
+    ;;
 esac
 
 

@@ -59,10 +59,10 @@ sudo apt install spotify-client -y
 install_caprine() {
 echo_info " *** Installing Caprine:FB messenger for Linux *** "
 cd ~/Downloads
-curl -s https://api.github.com/repos/sindresorhus/caprine/releases/latest \
-| grep "browser_download_url.*deb" \
-| cut -d : -f 2,3 \
-| tr -d \" \
+curl -s https://api.github.com/repos/sindresorhus/caprine/releases/latest
+| grep "browser_download_url.*deb" 
+| cut -d : -f 2,3 
+| tr -d \" 
 | tail -1 | wget -O caprine.deb -qi -
 sudo gdebi -n caprine.deb
 }
