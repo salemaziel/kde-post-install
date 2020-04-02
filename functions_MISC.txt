@@ -79,9 +79,9 @@ fi
 }
 
 usropt_security() {
-    sudo useradd -b /opt -s /usr/sbin/nologin -r -U optuser
+    sudo useradd -b -d /opt -s /usr/sbin/nologin -r -U optuser
     sudo chown -R optuser:optuser /opt
-    sudo useradd -b /usr/local/bin -s /usr/sbin/nologin -r -U usrlocbin
+    sudo useradd -b -d /usr/local/bin -s /usr/sbin/nologin -r -U usrlocbin
     sudo chown -R usrlocbin:usrlocbin /usr/local/bin
     sudo usermod -aG optuser,usrlocbin $USER
 }
