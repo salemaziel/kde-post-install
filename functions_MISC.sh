@@ -73,7 +73,7 @@ echo_info " ** Hardening (K)Ubuntu security a bit with Apparmor ** "
 sudo mkdir -p /etc/default/grub.d
 echo 'GRUB_CMDLINE_LINUX_DEFAULT="$GRUB_CMDLINE_LINUX_DEFAULT apparmor=1 security=apparmor"'  | sudo tee /etc/default/grub.d/apparmor.cfg
 sudo update-grub
-if [[ -z $(which firejail) ]]; then
+if [[ -x $(which firejail) ]]; then
     sudo aa-enforce firejail-default
 fi
 }
@@ -145,6 +145,7 @@ install_salems() {
             salems_kconfs
             fix_tilix
             blacklist_me
+            install_openvpn3
             echo_note "All Done."
             echo_note "Rebooting system in 30 seconds"
             sleep 30

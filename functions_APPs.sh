@@ -1,3 +1,5 @@
+#!/bin/bash
+
 install_etcher() {
 echo_info " *********** Installing Etcher: Live USB creator ******** "
 echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/etcher.list
@@ -58,12 +60,8 @@ sudo apt install spotify-client -y
 
 install_caprine() {
 echo_info " *** Installing Caprine:FB messenger for Linux *** "
-cd ~/Downloads
-curl -s https://api.github.com/repos/sindresorhus/caprine/releases/latest
-| grep "browser_download_url.*deb" 
-| cut -d : -f 2,3 
-| tr -d \" 
-| tail -1 | wget -O caprine.deb -qi -
+cd $HOME/Downloads
+curl -s https://api.github.com/repos/sindresorhus/caprine/releases/latest | grep "browser_download_url.*deb" | cut -d : -f 2,3 | tr -d \" | tail -1 | wget -O caprine.deb -qi -
 sudo gdebi -n caprine.deb
 }
 
@@ -280,4 +278,30 @@ Terminal=false
 Type=Application
 Icon=/opt/Postman/app/resources/app/assets/icon.png
 Categories=Development;Utilities;" >> $HOME/.local/share/applications/postman.desktop
+}
+
+install_openvpn3() {
+    sudo apt install apt-transport-https
+    wget https://swupdate.openvpn.net/repos/openvpn-repo-pkg-key.pub
+    sudo apt-key add openvpn-repo-pkg-key.pub
+    if [[ -z $(ls /etc/os-release) ]]; then
+        echo "no /etc/os-release, can't tell what distro you're using, but its not ubuntu or debian. Skipping."
+    else
+        source /etc/os-release
+        case $ID in 
+            ubuntu)
+                DISTRO=$UBUNTU_CODENAME
+                    ;;
+            debian)
+                DISTRO=$(lsb_release -c -s)
+                    ;;
+                *)
+                    echo "Can't tell what distro you're using, but its not ubuntu or debian. Skipping."
+                    exit 0
+                    ;;
+        esac
+    fi
+    sudo wget -O /etc/apt/sources.list.d/openvpn3.list https://swupdate.openvpn.net/community/openvpn3/repos/openvpn3-$DISTRO.list
+    sudo apt update
+    sudo apt install -y openvpn3
 }
